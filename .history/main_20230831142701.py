@@ -31,7 +31,7 @@ losses_kwh = dss.meters_register_names()[12]
 
 energ_factor_kwh = 0
 
-contador = 0
+
 while (1 + energ_factor_kwh) >= 1.00:
 #for j in range(10):
     #values 
@@ -41,7 +41,6 @@ while (1 + energ_factor_kwh) >= 1.00:
 
     dss.meters_reset()
 
-    contador += 1
 
     delta_energ_kwh = energ_base_kwh - energ_cal_kwh
     energ_factor_kwh = delta_energ_kwh / energ_base_kwh 
@@ -81,4 +80,4 @@ while (1 + energ_factor_kwh) >= 1.00:
     energ_cal_kvarh = dss.meters_register_values()[1]
     losses_cal_kwh = dss.meters_register_values()[12]
     print("losses_cal_kwh : ", losses_cal_kwh)
-print(f'Valor do contador eh:  {contador}')
+
