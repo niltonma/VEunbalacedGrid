@@ -4,8 +4,13 @@ import random
 
 def define_3ph_EV(dss, npts, interval, mult):
     """"npts = 24 (no ptos of load) interval = 1 mult = (0.69 0.50 ... 0.89) --> 24 point """
-    dss.text(f"New LoadShape.Semana npts=[{npts}]  interval=[{interval}]  mult=[{mult}]")
-    #dss.text(f"New LoadShape.Semana npts=[{24}]  interval=[{1}]  mult=[{carga}]")
+    dss.text("New LoadShape.Semana npts={}  interval={}  mult={}".format(npts,interval,mult))
+    
+def define_3ph_EV2(dss,  npts):
+    """"npts = 24 (no ptos of load) interval = 1 mult = (0.69 0.50 ... 0.89) --> 24 point """
+    dss.text("New LoadShape.Semana npts={}  interval=1  mult=(0 0 0 0 0 0 0 0 0 0 0 0 -0.4352945582710477 \
+             -0.4599901380457315 -0.47928261720234 -0.6324155092982278 0 0.2238169525946716 0.8234655360471604 \
+             0.5631497375909773 0.9349134637001743 0 0 0)".format(npts))
 
 def create_load_shape():
     charge1 = -1 * random.random()

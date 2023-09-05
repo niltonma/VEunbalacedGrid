@@ -1,24 +1,11 @@
 import py_dss_interface
 import pandas as pd
-import random
 
-def define_3ph_EV(dss, npts, interval, mult):
-    """"npts = 24 (no ptos of load) interval = 1 mult = (0.69 0.50 ... 0.89) --> 24 point """
-    dss.text(f"New LoadShape.Semana npts=[{npts}]  interval=[{interval}]  mult=[{mult}]")
-    #dss.text(f"New LoadShape.Semana npts=[{24}]  interval=[{1}]  mult=[{carga}]")
 
-def create_load_shape():
-    charge1 = -1 * random.random()
-    charge2 = -1 * random.random()
-    charge3 = -1 * random.random()
-    charge4 = -1 * random.random()
-    d1 = 1 * random.random()
-    d2 = 1 * random.random()
-    d3 = 1 * random.random()
-    d4 = 1 * random.random()
+def define_3ph_EV(dss, bus, npts, interval, mult):
 
-    mult = f"(0 0 0 0 0 0 0 0 0 0 0 0 {charge1} {charge2} {charge3} {charge4} 0 {d1} {d2} {d3} {d4} 0 0 0)" 
-    return mult
+    dss.text("New LoadShape.Semana npts={npts}  interval={interval}  mult={mult}")
+    
 
 def read_save_loads(dss, path_to_save_df, save: bool):
 
