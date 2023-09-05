@@ -88,17 +88,21 @@ path_to_save_df = r'C:\Users\alves\Documents\OpenDSS\replicar_artigos'
 # df_q_kvar= pd.DataFrame(list_energy_kvar, index=all_names, columns=["Q_Kvar"])
 # df_p_kw.to_csv(path_to_save_df+'\df_p_kw.csv')
 # df_q_kvar.to_csv(path_to_save_df+'\df_p_kvar.csv')
-n_loads = dss.loads_count()
-dss.loads_first()
 
-#need to prepare to write in specifics buses
-for i in range(n_loads):
-    dss.loads_write_kw(dss.loads_read_kw() * 1.2)
-    dss.loads_write_kva(dss.loads_read_kvar()* 1.2)
-    dss.loads_next()    
+for j in range(0, 5): # alterar algumas vezes os valores das cargas
 
-dss.solution_solve()
-read_save_loads(dss,path_to_save_df, False)
+    n_loads = dss.loads_count()
+    dss.loads_first()
+    #need to prepare to write in specifics buses
+    for i in range(n_loads):
+        
+        dss.loads_write_kw(dss.loads_read_kw() * 1.2)
+        dss.loads_write_kva(dss.loads_read_kvar()* 1.2)
+        dss.loads_next()    
+
+    dss.solution_solve()
+
+    read_save_loads(dss,path_to_save_df, False)
 
 
 print('here')
