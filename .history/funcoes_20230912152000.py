@@ -63,9 +63,6 @@ def find_bus(voltage, dss):
         # Ativar pela interface circuit para pegar número de nós
         dss.circuit_set_active_bus(bus)
         kv_bus = dss.bus_kv_base() #LN voltage
-        print("bus name: " + bus)
-        print("looking for: ", voltage)
-        print("dss.bus_pu_voltages(): ", dss.bus_pu_voltages())
         # Comando len Retorna o número de fases
         # num_phases =len(dss.bus_nodes())
 
@@ -80,7 +77,7 @@ def find_bus(voltage, dss):
             print('this is the bus: ', bus)
         else:
             print('not find')
-    return bus_voltage_dict
+    return bus
     
 
 

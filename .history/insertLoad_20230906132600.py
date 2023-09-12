@@ -44,11 +44,11 @@ selected_buses = sorted(set(selected_buses))
 
 for bus in selected_buses:
     carga =funcoes.create_load_shape()
-    print("carga: \n", carga)
-    print(f"New LoadShape.Semana npts={24}  interval={1}  mult={carga}\n")
+    print("carga: ", carga)
+    print(f"New LoadShape.Semana npts={24}  interval={1}  mult={carga}")
     dss.text(f"New LoadShape.Semana npts={24}  interval={1}  mult={carga}")
     #dss.text("New LoadShape.Semana npts=24  interval=1  mult=(0 0 0 0 0 0 0 0 0 0 0 0 -0.4352945582710477 -0.4599901380457315 -0.47928261720234 -0.6324155092982278 0 0.2238169525946716 0.8234655360471604 0.5631497375909773 0.9349134637001743 0 0 0)")
-    dss.text(f"New Load.{bus} Bus1={bus}  Phases=3 daily=Semana")
+    dss.text(f"New Load.{bus} Bus1={bus}  Phases=3 daily=Semana  Vminpu=0.0001")
     #print(f"New Load.{bus} Bus1={bus}  Phases=3 daily=Semana")
     
     #funcoes.define_3ph_EV(bus,24,1, carga) nao funciona, nao sei pq 

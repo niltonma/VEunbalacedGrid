@@ -15,14 +15,12 @@ dss = py_dss_interface.DSSDLL() # usa versao fornecida por py_dss_interface
 dss.text(f"Compile [{dss_file}]")
 dss.text("Buscoords  BusCoords.dat")
 dss.text("New EnergyMeter.Feeder Line.L115 1")
-dss.text("New monitor.powers element=Line.L115 terminal=1 ppolar=no mode=0")
+dss.text("New monitor.powers action=Save element=Line.L115 terminal=1 ppolar=no mode=0")
 dss.text("set mode=daily")
 dss.text("set number=24")
 dss.text("set stepsize=1h")
 
 dss.solution_solve()
-
-dss.text("plot monitor object=powers")
 
 dss.meters_write_name("feeder")
 

@@ -43,14 +43,11 @@ selected_buses =random.sample(mv_buses, int(percent * len(mv_buses)))
 selected_buses = sorted(set(selected_buses))
 
 for bus in selected_buses:
-    carga =funcoes.create_load_shape()
-    print("carga: \n", carga)
-    print(f"New LoadShape.Semana npts={24}  interval={1}  mult={carga}\n")
-    dss.text(f"New LoadShape.Semana npts={24}  interval={1}  mult={carga}")
-    #dss.text("New LoadShape.Semana npts=24  interval=1  mult=(0 0 0 0 0 0 0 0 0 0 0 0 -0.4352945582710477 -0.4599901380457315 -0.47928261720234 -0.6324155092982278 0 0.2238169525946716 0.8234655360471604 0.5631497375909773 0.9349134637001743 0 0 0)")
-    dss.text(f"New Load.{bus} Bus1={bus}  Phases=3 daily=Semana")
-    #print(f"New Load.{bus} Bus1={bus}  Phases=3 daily=Semana")
-    
+    #carga =funcoes.create_load_shape()
+    dss.text("New LoadShape.Semana npts=24  interval=1  mult=(0 0 0 0 0 0 0 0 0 0 0 0 -100.4352945582710477 -0.4599901380457315 -0.47928261720234 -0.6324155092982278 0 0.2238169525946716 0.8234655360471604 0.5631497375909773 0.9349134637001743 0 0 100)")
+    dss.text(f"New Load.{bus} Bus1={bus}  Phases=3 daily=Semana Conn=Wye   Model=1 kV=2.4   kW=20.0  kvar=10.0")
+    print(f"New Load.{bus} Bus1={bus}  Phases=3 daily=Semana Conn=Wye   Model=1 kV=2.4   kW=20.0  kvar=10.0")
+    #dss.text(f"New LoadShape.Semana npts=[{24}]  interval=[{1}]  mult=[{carga}]")
     #funcoes.define_3ph_EV(bus,24,1, carga) nao funciona, nao sei pq 
 
 dss.text("Interpolate")

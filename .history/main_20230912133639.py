@@ -22,8 +22,6 @@ dss.text("set stepsize=1h")
 
 dss.solution_solve()
 
-dss.text("plot monitor object=powers")
-
 dss.meters_write_name("feeder")
 
 energ_base_kwh   = 100000

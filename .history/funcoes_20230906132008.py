@@ -52,37 +52,3 @@ def read_save_loads(dss, path_to_save_df, save: bool):
         df_q_kvar= pd.DataFrame(list_energy_kvar, index=all_names, columns=["Q_Kvar"])
         df_p_kw.to_csv(path_to_save_df+'\df_p_kw.csv')
         df_q_kvar.to_csv(path_to_save_df+'\df_p_kvar.csv')
-
-def find_bus(voltage, dss):
-    mv_buses = list()
-    bus_voltage_dict = dict()
-    buses = dss.circuit_all_bus_names()
-    # Encontrar número e identificar barras
-
-    for bus in buses:
-        # Ativar pela interface circuit para pegar número de nós
-        dss.circuit_set_active_bus(bus)
-        kv_bus = dss.bus_kv_base() #LN voltage
-        print("bus name: " + bus)
-        print("looking for: ", voltage)
-        print("dss.bus_pu_voltages(): ", dss.bus_pu_voltages())
-        # Comando len Retorna o número de fases
-        # num_phases =len(dss.bus_nodes())
-
-        if kv_bus == voltage:
-
-            # Adiciona elementos na barra selecionada
-            mv_buses.append(bus)
-
-            # Associa tensão a variável bus_voltage_dict
-            bus_voltage_dict[bus] = kv_bus
-            
-            print('this is the bus: ', bus)
-        else:
-            print('not find')
-    return bus_voltage_dict
-    
-
-
-
-
