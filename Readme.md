@@ -53,9 +53,7 @@ dss.text("set stepsize=0.25h")
 
 Adiciona carga, para simular o ponto de carregamento do carro elétrico, conforme encontrado no artigo.
 
-![image-20231002132239715](C:\Users\alves\Documents\OpenDSS\VEunbalancedGrids\img\image-20231002132239715.png)
-
-
+![image-20231002132239715](./img/image-20231002132239715.png?raw=true)
 
 ```python
 dss.text("New Load.634a1 Bus1=634.1     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=252   kvar=0")
@@ -72,4 +70,8 @@ Calcula o Fluxo de Potência:
 ```python
 dss.solution_solve()
 ```
+
+
+
+teste
 
