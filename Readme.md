@@ -1,6 +1,8 @@
 Este repositorio será utilizado para replicar o artigo:
 
-**Study_of_Impact_of_Electric_Vehicle_Integration_in_Unbalanced_Distribution_System**
+P. Kaur and S. Kaur, "**Study of Impact of Electric Vehicle Integration in Unbalanced Distribution System**," *2022 IEEE International Power and Renewable Energy Conference (IPRECON)*, Kollam, India, 2022, pp. 1-6, doi: 10.1109/IPRECON55716.2022.10059564.
+
+
 
 Será utilizado o OpenDSS com a biblioteca [py_dss_interface](https://pypi.org/project/py-dss-interface/)
 
@@ -61,11 +63,7 @@ dss.text("New Load.634b1 Bus1=634.2     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=
 dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=168   kvar=0") 
 ```
 
-
-
 Calcula o Fluxo de Potência:
-
-
 
 ```python
 dss.solution_solve()
@@ -73,5 +71,5 @@ dss.solution_solve()
 
 
 
-teste
+
 
