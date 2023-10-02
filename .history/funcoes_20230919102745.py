@@ -8,36 +8,17 @@ def define_3ph_EV(dss, npts, interval, mult):
     #dss.text(f"New LoadShape.Semana npts=[{24}]  interval=[{1}]  mult=[{carga}]")
 
 def create_load_shape():
-    charge1 = 0.5 * random.random()
-    charge2 = 0.5 * random.random()
-    charge3 = 0.5 * random.random()
-    charge4 = 0.5 * random.random()
-    d1 = 1 * random.random()
-    d2 = 1 * random.random()
-    d3 = 1 * random.random()
-    d4 = 1 * random.random()
+    charge1 = 1 * random.random()
+    charge2 = 1 * random.random()
+    charge3 = 1 * random.random()
+    charge4 = 1 * random.random()
+    d1 = -1 * random.random()
+    d2 = -1 * random.random()
+    d3 = -1 * random.random()
+    d4 = -1 * random.random()
 
     mult = f"(0 0 0 0 0 0 0 0 0 0 0 0 {charge1} {charge2} {charge3} {charge4} 0 {d1} {d2} {d3} {d4} 0 0 0)" 
     return mult
-
-def create_LS(points):
-    mult = int(points/24)
-    multipliers =list()
-
-    for i in range(12*mult):
-        multipliers.append(1)
-    for i in range(4*mult):
-        multipliers.append(0.5 * random.random())
-    for i in range(1*mult):
-        multipliers.append(1)
-    for i in range(4*mult):
-        multipliers.append(2 * random.random())
-    for i in range(3*mult):
-        multipliers.append(1)
-
-
-    
-    return multipliers
 
 def read_save_loads(dss, path_to_save_df, save: bool):
 
@@ -73,7 +54,7 @@ def read_save_loads(dss, path_to_save_df, save: bool):
         df_q_kvar.to_csv(path_to_save_df+'\df_p_kvar.csv')
 
 def find_bus(voltage, dss):
-    #mv_buses = list()
+    mv_buses = list()
     bus_voltage_dict = dict()
     buses = dss.circuit_all_bus_names()
     # Encontrar número e identificar barras
@@ -81,7 +62,7 @@ def find_bus(voltage, dss):
     for bus in buses:
         # Ativar pela interface circuit para pegar número de nós
         dss.circuit_set_active_bus(bus)
-        #kv_bus = dss.bus_kv_base() #LN voltage
+        kv_bus = dss.bus_kv_base() #LN voltage
         print("bus name: " + bus)
         print("looking for: ", voltage)
         print("dss.bus_pu_voltages(): ", dss.bus_pu_voltages())
@@ -92,10 +73,10 @@ def find_bus(voltage, dss):
         if voltage in  dss.bus_pu_voltages():
 
             # Adiciona elementos na barra selecionada
-            #mv_buses.append(bus)
+            mv_buses.append(bus)
 
             # Associa tensão a variável bus_voltage_dict
-            #bus_voltage_dict[bus] = kv_bus
+            bus_voltage_dict[bus] = kv_bus
             
             print('this is the bus: ', bus)
         else:

@@ -25,19 +25,19 @@ def create_LS(points):
     multipliers =list()
 
     for i in range(12*mult):
-        multipliers.append(1)
+        multipliers.append(0)
     for i in range(4*mult):
         multipliers.append(0.5 * random.random())
     for i in range(1*mult):
-        multipliers.append(1)
+        multipliers.append(0)
     for i in range(4*mult):
-        multipliers.append(2 * random.random())
+        multipliers.append(1 * random.random())
     for i in range(3*mult):
-        multipliers.append(1)
+        multipliers.append(0)
 
-
+    multipliers = [1.0] * num_points
     
-    return multipliers
+    return 
 
 def read_save_loads(dss, path_to_save_df, save: bool):
 

@@ -35,12 +35,12 @@ dss.text("set stepsize=1h")
 dss.solution_solve()
 dss.text("show voltages")
 dss.text("plot profile")
-#dss.text("plot monitor object=powers")
+dss.text("plot monitor object=powers")
 
 load_variation1 = 1
 all_nodes_names_v_min= dict()
 all_nodes_names_v_max= dict()
-for i in range(3):
+for i in range(10):
     
 
     dss.text(f"set Loadmult = {load_variation1}")
@@ -80,13 +80,13 @@ print('Power is:', power)
 
 
 for bus in all_nodes_names_v_max:
-    b =  bus.split('.')[0] #descratar as fases
-    functions.add_bus_marker(dss, b, "green", 5)
+
+    functions.add_bus_marker(dss, bus, "green", 1)
 
 
 for bus in all_nodes_names_v_min:
-    b =  bus.split('.')[0] #descratar as fases
-    functions.add_bus_marker(dss, b, "red", 5)
+
+    functions.add_bus_marker(dss, bus, "red", 5)
 
 
 
@@ -141,7 +141,7 @@ for bus in all_nodes_names_v_min:
 #     functions.add_bus_marker(dss, bus, "red", 5)
 
 # # Calcular fluxo de potência
-#dss.solution_solve()
+# dss.solution_solve()
 
 # Plotar circuito com pvs marcados
 dss.text("plot circuit Power max=2000 n n C1=$00FF0000")

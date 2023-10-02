@@ -25,15 +25,15 @@ def create_LS(points):
     multipliers =list()
 
     for i in range(12*mult):
-        multipliers.append(1)
+        multipliers.append(0)
     for i in range(4*mult):
         multipliers.append(0.5 * random.random())
     for i in range(1*mult):
-        multipliers.append(1)
+        multipliers.append(0)
     for i in range(4*mult):
-        multipliers.append(2 * random.random())
+        multipliers.append(1 * random.random())
     for i in range(3*mult):
-        multipliers.append(1)
+        multipliers.append(0)
 
 
     
