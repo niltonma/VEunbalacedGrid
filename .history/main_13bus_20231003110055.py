@@ -55,7 +55,7 @@ dss.text("New Load.634a1 Bus1=634.1     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=
 dss.text("New Load.634b1 Bus1=634.2     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=168   kvar=0")
 dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=168   kvar=0") 
 
-
+dss.solution_solve()
 # dss.text("show voltages")
 
 #cria vetor com 96 pontos 
@@ -70,10 +70,6 @@ dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=
 
 #dss.text("set loadmult=0.3") # seta a carga com 30% da curva de carga
 dss.text("New LoadShape.MyLoadShape")
-
-dss.solution_solve()
-
-
 dss.text("plot Loadshape Object=DEFAULT")
 dss.text("plot monitor object=powers2")
 # # Extract time and load values from the load shape data
