@@ -40,16 +40,14 @@ dss.text(f"Compile [{dss_file}]")
 #  por isso ele so aceita 1 e 2
 #dss.text("New EnergyMeter.medidor1 element=Line.632633  terminal=1")
 # https://sourceforge.net/p/electricdss/discussion/861976/thread/08d0bb5c/
+dss.text("New EnergyMeter.medidor2 element=Line.632633  terminal=2")
 
-
-# dss.text("set mode=daily")
-# dss.text("set number=96")
-# dss.text("set stepsize=0.25h")
-
+#dss.text("New monitor.powers1 action=Save element=Line.632633  terminal=1 ppolar=no mode=0")
+dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=2 ppolar=no mode=1")
 
 dss.text("set mode=daily")
-dss.text("set number=24")
-dss.text("set stepsize=1h")
+dss.text("set number=96")
+dss.text("set stepsize=0.25h")
 
 # New EnergyMeter.medidor3 element=Transformer.XFM1 
 
@@ -73,19 +71,11 @@ dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=
 #dss.text("set loadmult=0.3") # seta a carga com 30% da curva de carga
 dss.text("New LoadShape.MyLoadShape")
 
-dss.text("New EnergyMeter.medidor2 element=Line.632633  terminal=2")
-dss.text("New EnergyMeter.medidor1 element=Transformer.XFM1 terminal=1")
- 
-#dss.text("New monitor.powers1 action=Save element=Line.632633  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.powers1 action=Save element=Transformer.XFM1  terminal=1 ppolar=no mode=1")
-dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=2 ppolar=no mode=1")
-
 dss.solution_solve()
 
 
 dss.text("plot Loadshape Object=DEFAULT")
 dss.text("plot monitor object=powers2")
-dss.text("plot monitor object=powers1")
 # # Extract time and load values from the load shape data
 # time_values = load_shape_data[0]
 # load_values = load_shape_data[1]
