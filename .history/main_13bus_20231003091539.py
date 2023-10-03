@@ -35,16 +35,12 @@ dss.text(f"Compile [{dss_file}]")
 # Set the loadshape data
 # dss.loads_shape(loadshape_name, num_points, multipliers)
 #dss.text("New LoadShape.diario npts=96 interval=0.25")
-#  o comando "terminal" nao se refere a fase da qual vc esta inserindo o energymeter,
-#  e sim em qual ponto da linha voce o colocar, ou seja, se no começo ou no final da linha,
-#  por isso ele so aceita 1 e 2
-#dss.text("New EnergyMeter.medidor1 element=Line.632633  terminal=1")
-# https://sourceforge.net/p/electricdss/discussion/861976/thread/08d0bb5c/
+dss.text("New EnergyMeter.medidor1 element=Line.632633  terminal=1")
 dss.text("New EnergyMeter.medidor2 element=Line.632633  terminal=2")
-
-#dss.text("New monitor.powers1 action=Save element=Line.632633  terminal=1 ppolar=no mode=0")
+#dss.text("New EnergyMeter.medidor3 element=Line.632633  terminal=3")
+dss.text("New monitor.powers1 action=Save element=Line.632633  terminal=1 ppolar=no mode=0")
 dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=2 ppolar=no mode=0")
-
+#dss.text("New monitor.powers3 action=Save element=Line.632633  terminal=3 ppolar=no mode=0")
 dss.text("set mode=daily")
 dss.text("set number=96")
 dss.text("set stepsize=0.25h")
@@ -53,7 +49,7 @@ dss.text("set stepsize=0.25h")
 
 dss.text("New Load.634a1 Bus1=634.1     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=252   kvar=0")
 dss.text("New Load.634b1 Bus1=634.2     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=168   kvar=0")
-dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=168   kvar=0") 
+#dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=168   kvar=0") 
 
 dss.solution_solve()
 # dss.text("show voltages")
@@ -69,7 +65,7 @@ dss.solution_solve()
 # load_shape_data = dss.active_class_get("LoadShape").read()
 
 #dss.text("set loadmult=0.3") # seta a carga com 30% da curva de carga
-dss.text("New LoadShape.MyLoadShape")
+dss.text(f"New LoadShape.MyLoadShape  Object=DEFAULT")
 dss.text("plot Loadshape Object=DEFAULT")
 # # Extract time and load values from the load shape data
 # time_values = load_shape_data[0]
