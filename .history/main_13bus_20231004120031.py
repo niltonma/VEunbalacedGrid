@@ -84,7 +84,7 @@ dss.text("New EnergyMeter.medidor2 element=Line.632633  terminal=2")
 dss.text("New EnergyMeter.medidor1 element=Transformer.XFM1 terminal=1")
  
 #dss.text("New monitor.powers1 action=Save element=Line.632633  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.powers1 action=Save element=Transformer.XFM1  terminal=2 ppolar=no mode=1")
+dss.text("New monitor.powers1 action=Save element=Transformer.XFM1  terminal=1 ppolar=no mode=1")
 dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=2 ppolar=no mode=1")
 #dss.text("New monitor.powers3 action=Save element=Load.634a1  terminal=1 ppolar=no mode=1")
 
