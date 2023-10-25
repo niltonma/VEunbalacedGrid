@@ -129,11 +129,11 @@ dss.solution_solve()
 dss.text("plot monitor object=powers1_V2G")
 # dss.text("export monitor object=powers1_V2G") #salva em uma pasta temp
 
-# dss.text("Show Voltages LN Nodes ")
-# dss.text("Show Currents Elem     ")
-# dss.text("Show Powers kVA Elem   ")
-# dss.text("Show Losses            ")
-# dss.text("Show Taps              ")
+dss.text("Show Voltages LN Nodes ")
+dss.text("Show Currents Elem     ")
+dss.text("Show Powers kVA Elem   ")
+dss.text("Show Losses            ")
+dss.text("Show Taps              ")
 
 dss.text("Show Currents residual=yes Elements")
 print('Loading')

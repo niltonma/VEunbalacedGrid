@@ -71,22 +71,22 @@ ls = [0.0, 0.00, 0.0450, 0.0450, 0.04450, 0.0780, 0.0780, 0.0780, 0.0780, 0.0780
     0.055, 0.06, 0.005, 0, 0, 0.000, 0, 0, 0.02, 0.02, 0, 0.02, 0.02, 0.02, 0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-# ls_f2 = [0.000571, 0.000571, 0.1021, 0.1021, 0.04450, 0.0780, 0.0780, 0.0780, 0.0780, 0.0780, 0.0880, 0.0880, 0.09050, 0.10400, 
-#     0.10400, 0.10400, 0.10400, 0.10400, 0.10400, 0.10400, 0.10400, 0.08800, 0.08800, 0.08800, 0.08800, 0.08800, 0.05900,
-#     0.055, 0.06, 0.005, 0, 0, 0.000, 0, 0, 0.02, 0.02, 0, 0.02, 0.02, 0.02, 0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-#     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+ls_f2 = [0.0571, 0.0571, 0.1021, 0.1021, 0.04450, 0.0780, 0.0780, 0.0780, 0.0780, 0.0780, 0.0880, 0.0880, 0.09050, 0.10400, 
+    0.10400, 0.10400, 0.10400, 0.10400, 0.10400, 0.10400, 0.10400, 0.08800, 0.08800, 0.08800, 0.08800, 0.08800, 0.05900,
+    0.055, 0.06, 0.005, 0, 0, 0.000, 0, 0, 0.02, 0.02, 0, 0.02, 0.02, 0.02, 0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 #ajusta loadshape das fases 2 e 3
-ls_f2_v2 = functions.create_custom_ls_g2v('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_Mon_powers1_g2v_1.csv','C:\\Users\\alves\\Downloads\\IEEE13Nodeckt_Mon_powers1_g2v_f23.csv',ls)
+#ls_f2_v2 = functions.create_custom_ls('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_Mon_powers1_1.csv','C:\\Users\\alves\\Downloads\\IEEE13Nodeckt_Mon_powers1_1_v2.csv',ls_f2)
 
 
 dss.text(f"New LoadShape.G2V npts={n_pontos_curva}  interval={0.25}  mult={ls}")
-dss.text(f"New LoadShape.G2V_f2_v2 npts={n_pontos_curva}  interval={0.25}  mult={ls_f2_v2}")
+#dss.text(f"New LoadShape.G2V_f2_v2 npts={n_pontos_curva}  interval={0.25}  mult={ls_f2_v2}")
 #case C (G2V): adicionar carga à carga original
 #valores à adicionar:
 dss.text("New Load.634a1 Bus1=634.1     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-252   kvar=0 daily=G2V")
-dss.text("New Load.634b1 Bus1=634.2     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168   kvar=0 daily=G2V_f2_v2")
-dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168   kvar=0 daily=G2V_f2_v2") 
+dss.text("New Load.634b1 Bus1=634.2     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168   kvar=0 daily=G2V")
+dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168   kvar=0 daily=G2V") 
 #print(dss.Cicruit.LoadShapes.Mult)
 
 
@@ -95,12 +95,12 @@ dss.solution_solve()
 #dss.text("show voltages")
 #dss.text("plot profile")  #tensao em pu
 #dss.text("plot Loadshape Object=DEFAULT")
+# dss.text("plot Loadshape Object=G2V")
 dss.text("plot Loadshape Object=G2V")
-dss.text("plot Loadshape Object=G2V_f2_v2")
 #dss.text("plot Loadshape Object=G2V_f2_v2")
-#dss.text("plot monitor object=powers2 labels=Yes")
+dss.text("plot monitor object=powers2 labels=Yes")
 dss.text("plot monitor object=powers1_g2v")
-#dss.text("export monitor object=powers1_g2v") #salva em uma pasta temp
+dss.text("export monitor object=powers1_g2v") #salva em uma pasta temp
 #dss.text("plot monitor object=Current1 channel=[15 16] ")
 
 #dss.text("plot monitor object=Current1 channel=[1 3 5] ")
@@ -129,13 +129,5 @@ dss.text("plot monitor object=powers1_g2v")
 # dss.text("plot Loadshape Object=G2V_f2v2")
 # dss.text("plot monitor object=powers1")
 
-
-# dss.text("Show Voltages LN Nodes ")
-# dss.text("Show Currents Elem     ")
-# dss.text("Show Powers kVA Elem   ")
-# dss.text("Show Losses            ")
-# dss.text("Show Taps              ")
-
-dss.text("Show Currents residual=yes Elements")
 
 print('Loading')

@@ -130,12 +130,4 @@ dss.text("plot monitor object=powers1_g2v")
 # dss.text("plot monitor object=powers1")
 
 
-# dss.text("Show Voltages LN Nodes ")
-# dss.text("Show Currents Elem     ")
-# dss.text("Show Powers kVA Elem   ")
-# dss.text("Show Losses            ")
-# dss.text("Show Taps              ")
-
-dss.text("Show Currents residual=yes Elements")
-
 print('Loading')

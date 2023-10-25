@@ -40,30 +40,7 @@ dss.text("edit Load.634c Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=
 #cria loadshape 7.5 horas de carga (primeiras horas do dia)
 n_pontos_curva = 96 #24* 4 
 pontos_inicias = int(4*7.5)
-#i1 = int(4*3)
-# i11 = int(4)
-# i12 = int(4)
-# i13 = int(4)
-# i2 = int(4*3)
-# #i3 = int(4*1.5)
-# i31 = int(2*1.5)
-# i32 = int(2*1.5)
-# ls = []
-# for i in range(i11):
-#     ls.append(0.05)
-# for i in range(i12):
-#     ls.append(0.10)
-# for i in range(i13):
-#     ls.append(0.15)    
-# for i in range(i2):
-#     ls.append(0.15)
-# for i in range(i31):
-#     ls.append(0.12)
-# for i in range(i32):
-#     ls.append(0.06)    
-# for i in range(n_pontos_curva-(i11+i12+i13+i2+i31+i32)):
-#     ls.append(0)    
-# print(ls)
+
 
 
 ls = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0020, 0.0026, 0.06, 0.060,
@@ -128,12 +105,4 @@ dss.solution_solve()
 #dss.text("plot monitor object=powers2 labels=Yes")
 dss.text("plot monitor object=powers1_V2G")
 # dss.text("export monitor object=powers1_V2G") #salva em uma pasta temp
-
-# dss.text("Show Voltages LN Nodes ")
-# dss.text("Show Currents Elem     ")
-# dss.text("Show Powers kVA Elem   ")
-# dss.text("Show Losses            ")
-# dss.text("Show Taps              ")
-
-dss.text("Show Currents residual=yes Elements")
 print('Loading')

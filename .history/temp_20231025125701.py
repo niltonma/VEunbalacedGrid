@@ -4,22 +4,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import os, functions, funcoes
 
-
-from py_dss_interface.models.LoadShapes.LoadShapesF import LoadShapesF
-from py_dss_interface.models.LoadShapes.LoadShapesI import LoadShapesI
-from py_dss_interface.models.LoadShapes.LoadShapesS import LoadShapesS
-from py_dss_interface.models.LoadShapes.LoadShapesV import LoadShapesV
-from typing import List
-
-
-
 circuit_pu = 1.045
 
 random.seed(114) # mantém os valores "aleatorios" iguais.
-#dss = py_dss_interface.DSSDLL() # usa versao fornecida por py_dss_interface
-dss = py_dss_interface.DSSDLL(r"C:\Program Files\OpenDSS")
 
-
+# dss = py_dss_interface.DSSDLL(r"C:\Program Files\OpenDSS")
+dss = py_dss_interface.DSSDLL()
 dss_file = r"C:\Program Files\OpenDSS\IEEETestCases\13Bus\IEEE13Nodeckt.dss"
 
 dss.text(f"Compile [{dss_file}]")
@@ -40,30 +30,7 @@ dss.text("edit Load.634c Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=
 #cria loadshape 7.5 horas de carga (primeiras horas do dia)
 n_pontos_curva = 96 #24* 4 
 pontos_inicias = int(4*7.5)
-#i1 = int(4*3)
-# i11 = int(4)
-# i12 = int(4)
-# i13 = int(4)
-# i2 = int(4*3)
-# #i3 = int(4*1.5)
-# i31 = int(2*1.5)
-# i32 = int(2*1.5)
-# ls = []
-# for i in range(i11):
-#     ls.append(0.05)
-# for i in range(i12):
-#     ls.append(0.10)
-# for i in range(i13):
-#     ls.append(0.15)    
-# for i in range(i2):
-#     ls.append(0.15)
-# for i in range(i31):
-#     ls.append(0.12)
-# for i in range(i32):
-#     ls.append(0.06)    
-# for i in range(n_pontos_curva-(i11+i12+i13+i2+i31+i32)):
-#     ls.append(0)    
-# print(ls)
+
 
 
 ls = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.0020, 0.0026, 0.06, 0.060,
@@ -94,20 +61,7 @@ ls_f2 = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     0.1115, 0.0870, 0.0870, 0.0870, 0.0870, 0.0870, 0.0870,
       0.0870, 0.0870, 0.0570, 0.057, 0.057, 0.01, 0.01, 0.01 ]
 
-# ls_f3 = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.06, 0,
-#           0.0020, 0.0026, 0.06, 0.060,
-#        0.0620, 0.0920, 0.092, 0.092 ,
-#        0.09, 0.09, 0.125, 0.13, 0.13, 0.16, 0.160, 0.160, 0.160, 
-#        0.160, 0.160, 0.160, 0.160, 0.160,
-#        0.160, 0.160, 0.160, 0.160,
-#          0.160, 0.160, 0.160, 0.160, 0.1680, 0.1680, 0.1680,
-#        0.165, 0.1650, 0.1650, 0.1650,
-#          0.140, 0.140, 0.140,
-#          0.140, 0.140, 0.1250, 0.1250, 0.1250, 0.110,
-#            0.110,
-#          0.11100, 0.11100,
-#     0.1115, 0.0870, 0.0870, 0.0870, 0.0870, 0.0870, 0.0870,
-#       0.0870, 0.0870, 0.0570, 0.057, 0.057, 0.01, 0.01, 0.01 ]
+
 
 
 ls_f2_v2 = functions.create_custom_ls_v2g('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_Mon_powers1_v2g_1.csv','C:\\Users\\alves\\Downloads\\IEEE13Nodeckt_Mon_powers1_v2g.csv',ls_f2)
@@ -128,12 +82,4 @@ dss.solution_solve()
 #dss.text("plot monitor object=powers2 labels=Yes")
 dss.text("plot monitor object=powers1_V2G")
 # dss.text("export monitor object=powers1_V2G") #salva em uma pasta temp
-
-# dss.text("Show Voltages LN Nodes ")
-# dss.text("Show Currents Elem     ")
-# dss.text("Show Powers kVA Elem   ")
-# dss.text("Show Losses            ")
-# dss.text("Show Taps              ")
-
-dss.text("Show Currents residual=yes Elements")
 print('Loading')

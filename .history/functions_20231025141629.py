@@ -45,18 +45,6 @@ def create_custom_ls(power, power_goal, ls_old):
 
     return loadshape
 
-def create_custom_ls_g2v(power, power_goal, ls_old):
-    """receves the power goal df exportes from opendss read power_goal_df 
-    and creates the loadshape to achieve the power_goal"""
-    df = pd.read_csv(power)
-    df2 = pd.read_csv(power_goal)
-    df['new'] = (-df[' P2 (kW)'] +df2['meta'])*(0.01 /1.75)
-    df['ls_old'] = ls_old
-    df['ls_new'] = df['ls_old'] +df['new']
-    loadshape  = df['ls_new'].values.tolist()
-
-    return loadshape
-
 def create_custom_ls_v2g(power, power_goal, ls_old):
     """receves the power goal df exportes from opendss read power_goal_df 
     and creates the loadshape to achieve the power_goal"""

@@ -39,12 +39,10 @@ dss.solution_solve()
 dss.text("plot monitor object=powers2")
 dss.text("plot monitor object=powers1")
 
-# dss.text("Show Voltages LN Nodes ")
-# dss.text("Show Currents Elem     ")
-# dss.text("Show Powers kVA Elem   ")
-# dss.text("Show Losses            ")
-# dss.text("Show Taps              ")
-
-dss.text("Show Currents residual=yes Elements")
+dss.text("Show Voltages LN Nodes ")
+dss.text("Show Currents Elem     ")
+dss.text("Show Powers kVA Elem   ")
+dss.text("Show Losses            ")
+dss.text("Show Taps              ")
 
 print("\n================================")

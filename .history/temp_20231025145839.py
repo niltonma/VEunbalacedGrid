@@ -1,23 +1,10 @@
 import py_dss_interface
 import random
-import matplotlib.pyplot as plt
-import pandas as pd
-import os, functions, funcoes
-
-
-from py_dss_interface.models.LoadShapes.LoadShapesF import LoadShapesF
-from py_dss_interface.models.LoadShapes.LoadShapesI import LoadShapesI
-from py_dss_interface.models.LoadShapes.LoadShapesS import LoadShapesS
-from py_dss_interface.models.LoadShapes.LoadShapesV import LoadShapesV
-from typing import List
-
-
-
+import  functions
 circuit_pu = 1.045
-
 random.seed(114) # mantém os valores "aleatorios" iguais.
-#dss = py_dss_interface.DSSDLL() # usa versao fornecida por py_dss_interface
-dss = py_dss_interface.DSSDLL(r"C:\Program Files\OpenDSS")
+dss = py_dss_interface.DSSDLL() # usa versao fornecida por py_dss_interface
+#dss = py_dss_interface.DSSDLL(r"C:\Program Files\OpenDSS")
 
 
 dss_file = r"C:\Program Files\OpenDSS\IEEETestCases\13Bus\IEEE13Nodeckt.dss"
@@ -129,13 +116,5 @@ dss.text("plot monitor object=powers1_g2v")
 # dss.text("plot Loadshape Object=G2V_f2v2")
 # dss.text("plot monitor object=powers1")
 
-
-# dss.text("Show Voltages LN Nodes ")
-# dss.text("Show Currents Elem     ")
-# dss.text("Show Powers kVA Elem   ")
-# dss.text("Show Losses            ")
-# dss.text("Show Taps              ")
-
-dss.text("Show Currents residual=yes Elements")
 
 print('Loading')

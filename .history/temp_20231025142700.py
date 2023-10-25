@@ -93,13 +93,4 @@ dss.solution_solve()
 #dss.text("plot monitor object=powers2 labels=Yes")
 dss.text("plot monitor object=powers1_comb")
 #dss.text("export monitor object=powers1_comb") #salva em uma pasta temp
-
-# dss.text("Show Voltages LN Nodes ")
-# dss.text("Show Currents Elem     ")
-# dss.text("Show Powers kVA Elem   ")
-# dss.text("Show Losses            ")
-# dss.text("Show Taps              ")
-
-dss.text("Show Currents residual=yes Elements")
-
 print('Loading')
