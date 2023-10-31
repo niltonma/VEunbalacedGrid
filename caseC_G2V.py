@@ -77,7 +77,11 @@ ls = [0.0, 0.00, 0.0450, 0.0450, 0.04450, 0.0780, 0.0780, 0.0780, 0.0780, 0.0780
 #     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 #ajusta loadshape das fases 2 e 3
-ls_f2_v2 = functions.create_custom_ls_g2v('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_Mon_powers1_g2v_1.csv','C:\\Users\\alves\\Downloads\\IEEE13Nodeckt_Mon_powers1_g2v_f23.csv',ls)
+path_machine = "C:\\Users\\alves"
+path_opendss_exports = "\\AppData\\Local\\OpenDSS"
+file_name = "\\IEEE13Nodeckt_Mon_powers1_g2v_1.csv"
+file_exported_to_read = path_machine +path_opendss_exports+file_name
+ls_f2_v2 = functions.create_custom_ls_g2v(file_exported_to_read,'C:\\Users\\alves\\Downloads\\IEEE13Nodeckt_Mon_powers1_g2v_f23.csv',ls)
 
 
 dss.text(f"New LoadShape.G2V npts={n_pontos_curva}  interval={0.25}  mult={ls}")

@@ -36,7 +36,7 @@ dss.text("edit Load.634c Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=
 dss.solution_solve()
 
 # dss.text("plot Loadshape Object=DEFAULT")
-#dss.text("plot monitor object=powers2")
+dss.text("plot monitor object=powers2")
 dss.text("plot monitor object=powers1")
 
 # dss.text("Show Voltages LN Nodes ")
