@@ -3,7 +3,7 @@ import random
 import matplotlib.pyplot as plt
 import pandas as pd
 import os, functions, funcoes
-# https://dss-extensions.org/dss_properties.html
+
 circuit_pu = 1.045
 
 random.seed(114) # mantém os valores "aleatorios" iguais.
@@ -40,7 +40,7 @@ dss.solution_solve()
 #dss.text("plot monitor object=powers2")
 dss.text("plot monitor object=powers1")
 dss.text("plot monitor object=Current1 channel=[15]")
-dss.text("plot EnergyMeter object=medidor1")
+
 dss.text("Show Voltages LN Nodes ")
 # dss.text("Show Currents Elem     ")
 # dss.text("Show Powers kVA Elem   ")

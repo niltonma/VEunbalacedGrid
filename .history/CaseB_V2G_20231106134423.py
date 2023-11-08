@@ -17,8 +17,8 @@ circuit_pu = 1.045
 
 random.seed(114) # mantém os valores "aleatorios" iguais.
 #dss = py_dss_interface.DSSDLL() # usa versao fornecida por py_dss_interface
-# dss = py_dss_interface.DSS(r"C:\Program Files\OpenDSS")
-dss = py_dss_interface.DSS()
+dss = py_dss_interface.DSSDLL(r"C:\Program Files\OpenDSS")
+
 
 dss_file = r"C:\Program Files\OpenDSS\IEEETestCases\13Bus\IEEE13Nodeckt.dss"
 

@@ -171,34 +171,34 @@ print("done")
 
 #dss.text("plot Loadshape Object=G2V")
 #dss.text("plot monitor object=powers2 labels=Yes")
-# dss.text("plot monitor object=powers1_V2G")
-# # dss.text("plot monitor object=tensao")
-# dss.text("plot monitor object=tensao channel=[5]")
-# # dss.text("export monitor object=powers1_V2G") #salva em uma pasta temp
+dss.text("plot monitor object=powers1_V2G")
+# dss.text("plot monitor object=tensao")
+dss.text("plot monitor object=tensao channel=[5]")
+# dss.text("export monitor object=powers1_V2G") #salva em uma pasta temp
 
-# dss.text("Show Voltages LN Nodes ")
-# # dss.text("Show Currents Elem     ")
-# # dss.text("Show Powers kVA Elem   ")
-# # dss.text("Show Losses            ")
-# # dss.text("Show Taps              ")
+dss.text("Show Voltages LN Nodes ")
+# dss.text("Show Currents Elem     ")
+# dss.text("Show Powers kVA Elem   ")
+# dss.text("Show Losses            ")
+# dss.text("Show Taps              ")
 
-# dss.text("Show Currents residual=yes Elements")
+dss.text("Show Currents residual=yes Elements")
 
 ## plotagem de todos os monitors: positivo - consumo; negativo - geração
-# monitors_names = list()
-# monitors_names = dss.monitors.names
-# print("monitors_names is: ", monitors_names)
-# n_monitors = len(monitors_names)
+monitors_names = list()
+monitors_names = dss.monitors.names
+print("monitors_names is: ", monitors_names)
+n_monitors = len(monitors_names)
 
-# z=dss.monitors._first()
+z=dss.monitors._first()
 
-# for i in range(n_monitors):
-#     dss.monitors._element_read()
-#     z=dss.monitors.next()
-#     for h in range(7):
-#         plt.plot(dss.monitors._channel(h))
-# dss.monitors._count()
-# plt.show()
+for i in range(n_monitors):
+    dss.monitors._element_read()
+    z=dss.monitors.next()
+    for h in range(7):
+        plt.plot(dss.monitors._channel(h))
+dss.monitors._count()
+plt.show()
 
 
 print('Loading')

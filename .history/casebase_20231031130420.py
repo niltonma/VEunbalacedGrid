@@ -3,7 +3,7 @@ import random
 import matplotlib.pyplot as plt
 import pandas as pd
 import os, functions, funcoes
-# https://dss-extensions.org/dss_properties.html
+
 circuit_pu = 1.045
 
 random.seed(114) # mantém os valores "aleatorios" iguais.

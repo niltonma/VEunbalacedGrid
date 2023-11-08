@@ -3,7 +3,7 @@ import random
 import matplotlib.pyplot as plt
 import pandas as pd
 import os, functions, funcoes
-# https://dss-extensions.org/dss_properties.html
+
 circuit_pu = 1.045
 
 random.seed(114) # mantém os valores "aleatorios" iguais.
@@ -23,7 +23,7 @@ dss.text("New EnergyMeter.medidor2 element=Line.632633  terminal=2")
 
 dss.text("New monitor.powers1 action=Save element=Transformer.XFM1  terminal=2 ppolar=no mode=1") # mode= 1 medir Potencia ativa
 dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=1 ppolar=no mode=1")
-dss.text("New monitor.Current1 action=Save element=Transformer.XFM1 terminal=1 ppolar=no mode=0")
+dss.text("New monitor.Current1 action=Save element=Transformer.XFM1  ppolar=no mode=11")
 
 # dss.text("New monitor.powers1 action=Save element=Transformer.XFM1  terminal=2 ppolar=yes mode=0") # mode= 0 medir tensao
 # dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=2 ppolar=yes mode=0")
@@ -39,8 +39,8 @@ dss.solution_solve()
 # dss.text("plot Loadshape Object=DEFAULT")
 #dss.text("plot monitor object=powers2")
 dss.text("plot monitor object=powers1")
-dss.text("plot monitor object=Current1 channel=[15]")
-dss.text("plot EnergyMeter object=medidor1")
+dss.text("plot monitor object=Current1")
+
 dss.text("Show Voltages LN Nodes ")
 # dss.text("Show Currents Elem     ")
 # dss.text("Show Powers kVA Elem   ")
