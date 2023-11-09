@@ -32,7 +32,7 @@ dss.text("set mode=daily")
 dss.text("set number=24")
 dss.text("set stepsize=1h")
 
-dss.solution.solve()
+dss.solution_solve()
 dss.text("show voltages")
 dss.text("plot profile")
 #dss.text("plot monitor object=powers")

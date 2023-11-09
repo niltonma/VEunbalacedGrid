@@ -144,7 +144,7 @@ ax1.set_ylabel('V [pu]', color=color)
 
 
 
-plt.axhline(y = 1.05, color = "orange", label = "limite superior adequada", ls = '--', lw = 2.5)
+# plt.axhline(y = 1.05, color = "orange", label = "limite superior adequada", ls = '--', lw = 2.5)
 # plt.axhline(y = 0.95, color = "red", label = "limite inferior adequada", ls = '--', lw = 2.5)
 ax1.plot(x_inf, v_mag_pu.loc["rg60.1",:],color = "green", label = "RG60",  lw = 1.5)
 ax1.plot(x_inf,v_mag_pu.loc["634.1",:],color = "Blue", label = "634.1",  lw = 1.5)
@@ -158,7 +158,7 @@ ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
 color = 'tab:blue'
 
 ax2.set_ylabel('pu', color=color)  # we already handled the x-label with ax1
-ax2.plot(x_inf,ls_f2_v2,color = "red", label = "LoadShape_Bus1=634.2_Bus1=634.3",  lw = 2.0)
+ax2.plot(x_inf,ls_f2_v2,color = "yellow", label = "LoadShape",  lw = 2.0)
 
 plt.legend()
 # plt.ylabel("V [pu]")
