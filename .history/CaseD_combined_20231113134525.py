@@ -76,10 +76,8 @@ ls_comb = [ 0.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 ls_f1 = functions.create_custom_ls_comb_f1('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_Mon_powers1_comb_1.csv','C:\\Users\\alves\\Downloads\\IEEE13Nodeckt_Mon_powers1_comb.csv',ls_comb)
 
 ls_f23 = functions.create_custom_ls_comb_f23('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_Mon_powers1_comb_1.csv','C:\\Users\\alves\\Downloads\\IEEE13Nodeckt_Mon_powers1_comb_f23.csv',ls_comb)
-x_inf = [i/4 for i in range(1, 97)]
-
-plt.plot(x_inf,ls_f1)
-plt.plot(x_inf, ls_f23)
+plt.plot(ls_f1)
+plt.plot(ls_f23)
 plt.show()
 
 dss.text(f"New LoadShape.comb_v2 npts={n_pontos_curva}  interval={0.25}  mult={ls_f1}")

@@ -76,11 +76,7 @@ ls_comb = [ 0.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 ls_f1 = functions.create_custom_ls_comb_f1('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_Mon_powers1_comb_1.csv','C:\\Users\\alves\\Downloads\\IEEE13Nodeckt_Mon_powers1_comb.csv',ls_comb)
 
 ls_f23 = functions.create_custom_ls_comb_f23('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_Mon_powers1_comb_1.csv','C:\\Users\\alves\\Downloads\\IEEE13Nodeckt_Mon_powers1_comb_f23.csv',ls_comb)
-x_inf = [i/4 for i in range(1, 97)]
 
-plt.plot(x_inf,ls_f1)
-plt.plot(x_inf, ls_f23)
-plt.show()
 
 dss.text(f"New LoadShape.comb_v2 npts={n_pontos_curva}  interval={0.25}  mult={ls_f1}")
 dss.text(f"New LoadShape.comb_f23 npts={n_pontos_curva}  interval={0.25}  mult={ls_f23}")
@@ -91,7 +87,7 @@ dss.text("New Load.634a1 Bus1=634.1     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=
 dss.text("New Load.634b1 Bus1=634.2     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168   kvar=0 daily=comb_f23")
 dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168   kvar=0 daily=comb_f23") 
 #print(dss.Cicruit.LoadShapes.Mult)
-dss.solution.solve()
+dss.solution_solve()
 #dss.text("plot Loadshape Object=DEFAULT")
 #dss.text("plot Loadshape Object=G2V")
 #dss.text("plot monitor object=powers2 labels=Yes")
