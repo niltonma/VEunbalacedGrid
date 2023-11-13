@@ -25,9 +25,6 @@ dss.text("New monitor.powers1 action=Save element=Transformer.XFM1  terminal=2 p
 dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=1 ppolar=no mode=1")
 dss.text("New monitor.Current1 action=Save element=Transformer.XFM1 terminal=1 ppolar=no mode=0")
 
-# dss.text("New monitor.powers1 action=Save element=Transformer.XFM1  terminal=2 ppolar=yes mode=0") # mode= 0 medir tensao
-# dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=2 ppolar=yes mode=0")
-
 
 #carga original, caso base - CASE A:
 dss.text("edit Load.634a Bus1=634.1     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-160   kvar=-110 daily=DEFAULT")
@@ -40,7 +37,7 @@ dss.solution.solve()
 #dss.text("plot monitor object=powers2")
 dss.text("plot monitor object=powers1")
 dss.text("plot monitor object=Current1 channel=[15]")
-dss.text("plot EnergyMeter object=medidor1")
+# dss.text("plot EnergyMeter object=medidor1")
 dss.text("Show Voltages LN Nodes ")
 # dss.text("Show Currents Elem     ")
 # dss.text("Show Powers kVA Elem   ")
