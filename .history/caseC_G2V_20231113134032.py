@@ -28,15 +28,15 @@ dss.text("set mode=daily")
 dss.text("set number=96")
 dss.text("set stepsize=0.25h")
 dss.text("New EnergyMeter.medidor1 element=Transformer.XFM1 terminal=1")
-dss.text("New EnergyMeter.medidor2 element=Line.632633  terminal=1")
-dss.text("New monitor.powers1_g2v action=Save element=Transformer.XFM1  terminal=1 ppolar=no mode=1")
-dss.text("New monitor.Current1 action=Save element=Transformer.XFM1  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=1 ppolar=no mode=1")
+dss.text("New EnergyMeter.medidor2 element=Line.632633  terminal=2")
+dss.text("New monitor.powers1_g2v action=Save element=Transformer.XFM1  terminal=2 ppolar=no mode=1")
+dss.text("New monitor.Current1 action=Save element=Transformer.XFM1  terminal=2 ppolar=no mode=0")
+dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=2 ppolar=no mode=1")
 
 #carga original, caso base - CASE A:
-dss.text("edit Load.634a Bus1=634.1     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=160   kvar=110 daily=DEFAULT")
-dss.text("edit Load.634b Bus1=634.2     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=120   kvar=90  daily=DEFAULT")
-dss.text("edit Load.634c Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=120   kvar=90  daily=DEFAULT")
+dss.text("edit Load.634a Bus1=634.1     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-160   kvar=-110 daily=DEFAULT")
+dss.text("edit Load.634b Bus1=634.2     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-120   kvar=-90  daily=DEFAULT")
+dss.text("edit Load.634c Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-120   kvar=-90  daily=DEFAULT")
 
 #cria loadshape 7.5 horas de carga (primeiras horas do dia)
 n_pontos_curva = 96 #24* 4 
@@ -88,9 +88,9 @@ dss.text(f"New LoadShape.G2V npts={n_pontos_curva}  interval={0.25}  mult={ls}")
 dss.text(f"New LoadShape.G2V_f2_v2 npts={n_pontos_curva}  interval={0.25}  mult={ls_f2_v2}")
 #case C (G2V): adicionar carga à carga original
 #valores à adicionar:
-dss.text("New Load.634a1 Bus1=634.1     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=252   kvar=0 daily=G2V")
-dss.text("New Load.634b1 Bus1=634.2     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=168   kvar=0 daily=G2V_f2_v2")
-dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=168   kvar=0 daily=G2V_f2_v2") 
+dss.text("New Load.634a1 Bus1=634.1     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-252   kvar=0 daily=G2V")
+dss.text("New Load.634b1 Bus1=634.2     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168   kvar=0 daily=G2V_f2_v2")
+dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168   kvar=0 daily=G2V_f2_v2") 
 #print(dss.Cicruit.LoadShapes.Mult)
 
 
