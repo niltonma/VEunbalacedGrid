@@ -51,7 +51,7 @@ dss.text("plot Loadshape Object=comb_v2_pm")
 #print(dss.Cicruit.LoadShapes.Mult)
 dss.solution.solve()
 #dss.text("plot Loadshape Object=DEFAULT")
-dss.text("plot Loadshape Object=comb_v2_pm")
+#dss.text("plot Loadshape Object=comb_v2")
 #dss.text("plot Loadshape Object=comb_f23")
 #dss.text("plot monitor object=powers2 labels=Yes")
 
