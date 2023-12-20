@@ -106,18 +106,8 @@ print("potencias: ", resultados)
 #dss.text("export monitor object=powers1_comb") #salva em uma pasta temp
 
 dss.text("plot monitor object=powers2_comb") # para salvar as tensões
-tensao = functions.read_file_montior('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-POWERS2_COMB-ch1-ch3-ch5.DSV')
-base = 2400 #volts
-tensao_pu = [i/base for i in tensao]
-print("tensao_pu: ", tensao_pu)
 
-
-dss.text("plot monitor object=powers2_comb channel=[15]")  # verificar corrente de neutro
-resultados_corrente_neutro = functions.read_file_montior_neutral_current('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-POWERS2_COMB-ch15.DSV')
-print("Max neutral current:", resultados_corrente_neutro[0], " Min neutral current:", resultados_corrente_neutro[1])
-
-
-
+dss.text("plot monitor object=powers2_comb")
 # dss.text("Show Voltages LN Nodes ")
 # dss.text("Show Currents Elem     ")
 # dss.text("Show Powers kVA Elem   ")

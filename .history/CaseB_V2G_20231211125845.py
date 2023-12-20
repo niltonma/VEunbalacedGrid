@@ -137,14 +137,15 @@ n_monitors = len(monitors_names)
 
 z=dss.monitors.first()
 
+
+
 for i in range(n_monitors):
     # dss.monitors_read_element()
     dss.monitors._element_read()
-    #dss.monitors.show()  
+    #dss.monitors.show()
+    z=dss.monitors._next()
     for h in range(7):
         plt.plot(dss.monitors.channel(h))
-    plt.show()
-    z=dss.monitors._next()
 dss.monitors._count()
 plt.show()
 

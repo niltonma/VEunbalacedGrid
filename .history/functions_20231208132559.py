@@ -156,84 +156,38 @@ def get_total_pv_powers(dss):
     return total_pv_p, total_pv_q
 
 def read_file_montior(file_w_path):
-
-    f = open(file_w_path, mode="r")  
-
-    lines = f.readlines()
-
-    fase1 = lines[1]
-    fase1= fase1.split(",")
-    fase1_pkw = fase1[104:200]
-    fase1_pkw = [float(x) for x in fase1_pkw]
-    max_fase1 = max(fase1_pkw)
-    min_fase1 = min(fase1_pkw)
-
-
-
-    fase2 = lines[2]
-    fase2= fase2.split(",")
-    fase2_pkw = fase2[104:200]
-    fase2_pkw = [float(x) for x in fase2_pkw]
-    max_fase2 = max(fase2_pkw)
-    min_fase2 = min(fase2_pkw)
-
-    fase3 = lines[3]
-    fase3= fase3.split(",")
-    fase3_pkw = fase3[104:200]
-    fase3_pkw = [float(x) for x in fase3_pkw]
-    max_fase3 = max(fase3_pkw)
-    min_fase3 = min(fase3_pkw)
-
-    print(max_fase1, min_fase1, max_fase2, min_fase2, max_fase3, min_fase3)
-
-    return  max_fase1, min_fase1, max_fase2, min_fase2, max_fase3, min_fase3
+    fase1= list()
+    fase2= list()
+    fase3= list()
+    return 
  
-# f = open('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-POWERS1-ch1-ch3-ch5.DSV', mode="r")  
+f = open('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-POWERS1-ch1-ch3-ch5.DSV', mode="r")  
 
-# Lines = f.readlines()
+Lines = f.readlines()
 
-# fase1 = Lines[1]
-# fase1= fase1.split(",")
-# fase1_pkw = fase1[104:200]
-# fase1_pkw = [float(x) for x in fase1_pkw]
-# max_fase1 = max(fase1_pkw)
-# min_fase1 = min(fase1_pkw)
-
-
-
-# fase2 = Lines[2]
-# fase2= fase2.split(",")
-# fase2_pkw = fase2[104:200]
-# fase2_pkw = [float(x) for x in fase2_pkw]
-# max_fase2 = max(fase2_pkw)
-# min_fase2 = min(fase2_pkw)
-
-# fase3 = Lines[3]
-# fase3= fase3.split(",")
-# fase3_pkw = fase3[104:200]
-# fase3_pkw = [float(x) for x in fase3_pkw]
-# max_fase3 = max(fase3_pkw)
-# min_fase3 = min(fase3_pkw)
-
-# print(max_fase1, min_fase1, max_fase2, min_fase2, max_fase3, min_fase3, max_fase3)
-
-# print("s")
+fase1 = Lines[1]
+fase1= fase1.split(",")
+fase1_pkw = fase1[104:200]
+fase1_pkw = [float(x) for x in fase1_pkw]
+max_fase1 = max(fase1_pkw)
+min_fase1 = min(fase1_pkw)
 
 
-def read_file_montior_neutral_current(file_w_path):
 
-    f = open(file_w_path, mode="r")  
+fase2 = Lines[2]
+fase2= fase2.split(",")
+fase2_pkw = fase2[104:200]
+fase2_pkw = [float(x) for x in fase2_pkw]
+max_fase2 = max(fase2_pkw)
+min_fase2 = min(fase2_pkw)
 
-    lines = f.readlines()
+fase3 = Lines[3]
+fase3= fase3.split(",")
+fase3_pkw = fase3[104:200]
+fase3_pkw = [float(x) for x in fase3_pkw]
+max_fase3 = max(fase3_pkw)
+min_fase3 = min(fase3_pkw)
 
-    fase1 = lines[1]
-    fase1= fase1.split(",")
-    fase1_pkw = fase1[104:200]
-    fase1_pkw = [float(x) for x in fase1_pkw]
-    max_fase1 = max(fase1_pkw)
-    min_fase1 = min(fase1_pkw)
+print(max_fase1, min_fase1, max_fase2, min_fase2, max_fase3, min_fase3, max_fase3)
 
-    print(max_fase1, min_fase1)
-
-    return  max_fase1, min_fase1
- 
+print("s")

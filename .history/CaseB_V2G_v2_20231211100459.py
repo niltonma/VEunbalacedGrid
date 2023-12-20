@@ -129,7 +129,7 @@ losses_kw = list()
 for h in range(n_pontos_curva):  #96 pontos
 # for h in x_min:  #96 pontos
     dss.text("set stepsize=15m")
-    dss.text("set number=1")  #numero de interações
+    dss.text("set number=0")  #numero de interações
     dss.text(f"set hour={(h+1)/4}")
     dss.text("solve")
     # v_mag[h,:] = dss.circuit.buses_vmag

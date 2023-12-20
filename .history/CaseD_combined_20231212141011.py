@@ -30,7 +30,6 @@ dss.text("set stepsize=0.25h")
 dss.text("New EnergyMeter.medidor1 element=Transformer.XFM1 terminal=1")
 dss.text("New EnergyMeter.medidor2 element=Line.632633  terminal=1")
 dss.text("New monitor.powers1_comb action=Save element=Transformer.XFM1  terminal=1 ppolar=no mode=1")
-dss.text("New monitor.powers2_comb action=Save element=Transformer.XFM1  terminal=1 ppolar=no mode=0")
 dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=1 ppolar=no mode=1")
 
 #carga original, caso base - CASE A:
@@ -97,26 +96,8 @@ dss.solution.solve()
 #dss.text("plot Loadshape Object=comb_v2")
 #dss.text("plot Loadshape Object=comb_f23")
 #dss.text("plot monitor object=powers2 labels=Yes")
-
-dss.text("plot monitor object=powers1_comb") # para salvar as potencias
-print('plotado para salvar dados')
-resultados = functions.read_file_montior('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-POWERS1_COMB-ch1-ch3-ch5.DSV')
-print("potencias: ", resultados)
-
+dss.text("plot monitor object=powers1_comb")
 #dss.text("export monitor object=powers1_comb") #salva em uma pasta temp
-
-dss.text("plot monitor object=powers2_comb") # para salvar as tensões
-tensao = functions.read_file_montior('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-POWERS2_COMB-ch1-ch3-ch5.DSV')
-base = 2400 #volts
-tensao_pu = [i/base for i in tensao]
-print("tensao_pu: ", tensao_pu)
-
-
-dss.text("plot monitor object=powers2_comb channel=[15]")  # verificar corrente de neutro
-resultados_corrente_neutro = functions.read_file_montior_neutral_current('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-POWERS2_COMB-ch15.DSV')
-print("Max neutral current:", resultados_corrente_neutro[0], " Min neutral current:", resultados_corrente_neutro[1])
-
-
 
 # dss.text("Show Voltages LN Nodes ")
 # dss.text("Show Currents Elem     ")

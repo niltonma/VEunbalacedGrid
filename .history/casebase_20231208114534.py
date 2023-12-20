@@ -18,14 +18,12 @@ dss.text(f"Compile [{dss_file}]")
 dss.text("set mode=daily")
 dss.text("set number=96")
 dss.text("set stepsize=0.25h")
-dss.text("New EnergyMeter.medidor1 action=save element=Transformer.XFM1 terminal=1")
+dss.text("New EnergyMeter.medidor1 element=Transformer.XFM1 terminal=1")
 dss.text("New EnergyMeter.medidor2 element=Line.632633  terminal=1")
 
 dss.text("New monitor.powers1 action=Save element=Transformer.XFM1  terminal=1 ppolar=no mode=1") # mode= 1 medir Potencia ativa
 dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=1 ppolar=no mode=1")
 dss.text("New monitor.Current1 action=Save element=Transformer.XFM1 terminal=1 ppolar=no mode=0")
-
-dss.text("New monitor.Currentreg3 action=Save element=Transformer.Reg1 terminal=1 ppolar=no mode=0") #investigar a violacao de tensao
 
 # dss.text("New monitor.powers1 action=Save element=Transformer.XFM1  terminal=2 ppolar=yes mode=0") # mode= 0 medir tensao
 # dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=2 ppolar=yes mode=0")
@@ -40,37 +38,10 @@ dss.solution.solve()
 
 # dss.text("plot Loadshape Object=DEFAULT")
 #dss.text("plot monitor object=powers2")
-dss.text("plot monitor object=powers1")  # C:\Users\alves\AppData\Local\OpenDSS\
-dss.text("plot monitor object=Current1")
-print("plotado monitor para salvar o arquivo DSV")
-resultados = functions.read_file_montior('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-POWERS1-ch1-ch3-ch5.DSV')
-
-dss.text("plot monitor object=Current1 channel=[15]") # plot current residual and  save DSV w info to read and extract info with "functions.read_file_montior_neutral_current"
-resultados_corrente_neutro = functions.read_file_montior_neutral_current('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-CURRENT1-ch15.DSV')
-print("Max neutral current:", resultados_corrente_neutro[0], " Min neutral current:", resultados_corrente_neutro[1])
-
-#dss.text("plot EnergyMeter object=medidor1") #acho q o comando esta errado
-# dss.text("Visualize powers EnergyMeter.medidor1")
-# dss.text("Visualize voltages EnergyMeter.medidor1")
-# dss.text("Visualize currents EnergyMeter.medidor1")
-
-
+# dss.text("plot monitor object=powers1")
+# dss.text("plot monitor object=Current1 channel=[15]")
+dss.text("plot EnergyMeter object=medidor2")
 dss.text("Show Voltages LN Nodes ")
-
-tensao = functions.read_file_montior('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-CURRENT1-ch1-ch3-ch5.DSV')
-base = 2400 #volts
-tensao_pu = [i/base for i in tensao]
-print("tensao_pu: ", tensao_pu)
-
-dss.text("plot monitor object=Currentreg3")
-print("plotado monitor")
-
-tensaoreg3 = functions.read_file_montior('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-CURRENTREG3-ch1-ch3-ch5.DSV')
-base = 2400 #volts
-tensao_pu_reg3 = [i/base for i in tensaoreg3]
-print("tensao_pu: ", tensao_pu_reg3)
-
-
 # dss.text("Show Currents Elem     ")
 # dss.text("Show Powers kVA Elem   ")
 dss.text("Show Losses            ")

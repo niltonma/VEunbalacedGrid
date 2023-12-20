@@ -131,21 +131,18 @@ print("Max neutral current:", resultados_corrente_neutro[0], " Min neutral curre
 dss.text("Show Currents residual=yes Elements")
 
 ## plotagem de todos os monitors: positivo - consumo; negativo - geração
-monitors_names = dss.monitors.names
+monitors_names = dss.monitors_all_names()
 print("monitors_names is: ", monitors_names)
 n_monitors = len(monitors_names)
 
-z=dss.monitors.first()
+z=dss.monitors_first()
 
 for i in range(n_monitors):
-    # dss.monitors_read_element()
-    dss.monitors._element_read()
-    #dss.monitors.show()  
+    dss.monitors_read_element()
+    z=dss.monitors_next()
     for h in range(7):
-        plt.plot(dss.monitors.channel(h))
-    plt.show()
-    z=dss.monitors._next()
-dss.monitors._count()
+        plt.plot(dss.monitors_channel(h))
+dss.monitors_count()
 plt.show()
 
 

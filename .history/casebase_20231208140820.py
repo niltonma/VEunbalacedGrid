@@ -25,7 +25,7 @@ dss.text("New monitor.powers1 action=Save element=Transformer.XFM1  terminal=1 p
 dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=1 ppolar=no mode=1")
 dss.text("New monitor.Current1 action=Save element=Transformer.XFM1 terminal=1 ppolar=no mode=0")
 
-dss.text("New monitor.Currentreg3 action=Save element=Transformer.Reg1 terminal=1 ppolar=no mode=0") #investigar a violacao de tensao
+dss.text("New monitor.Currentreg3 action=Save element=Transformer.Reg3 terminal=1 ppolar=no mode=0") #investigar a violacao de tensao
 
 # dss.text("New monitor.powers1 action=Save element=Transformer.XFM1  terminal=2 ppolar=yes mode=0") # mode= 0 medir tensao
 # dss.text("New monitor.powers2 action=Save element=Line.632633  terminal=2 ppolar=yes mode=0")
@@ -45,10 +45,7 @@ dss.text("plot monitor object=Current1")
 print("plotado monitor para salvar o arquivo DSV")
 resultados = functions.read_file_montior('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-POWERS1-ch1-ch3-ch5.DSV')
 
-dss.text("plot monitor object=Current1 channel=[15]") # plot current residual and  save DSV w info to read and extract info with "functions.read_file_montior_neutral_current"
-resultados_corrente_neutro = functions.read_file_montior_neutral_current('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-CURRENT1-ch15.DSV')
-print("Max neutral current:", resultados_corrente_neutro[0], " Min neutral current:", resultados_corrente_neutro[1])
-
+# dss.text("plot monitor object=Current1 channel=[15]") # current residual 
 #dss.text("plot EnergyMeter object=medidor1") #acho q o comando esta errado
 # dss.text("Visualize powers EnergyMeter.medidor1")
 # dss.text("Visualize voltages EnergyMeter.medidor1")

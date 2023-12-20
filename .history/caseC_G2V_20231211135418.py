@@ -98,12 +98,6 @@ tensao_pu = [i/base for i in tensao]
 print("tensao_pu: ", tensao_pu)
 
 
-
-dss.text("plot monitor object=Current1_g2v channel=[15]")  # verificar corrente de neutro
-resultados_corrente_neutro = functions.read_file_montior_neutral_current('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-Current1_G2V-ch15.DSV')
-print("Max neutral current:", resultados_corrente_neutro[0], " Min neutral current:", resultados_corrente_neutro[1])
-
-
 #dss.text("export monitor object=powers1_g2v") #salva em uma pasta temp
 #dss.text("plot monitor object=Current1 channel=[15 16] ")
 
