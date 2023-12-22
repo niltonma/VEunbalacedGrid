@@ -74,13 +74,10 @@ time = np.arange(0.0, 24.0, 0.25)
 time = list(time)
 
 list_of_voltage_in_fases = functions.get_voltage_fases('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-POWERS2_COMB_PM-ch1-ch3-ch5.DSV')
-color = 'tab:red'
-plt.xlabel('Horas')
-plt.ylabel('V [pu]', color=color)
+
 plt.plot(time,[i/base for i in  list_of_voltage_in_fases[0]],color = "green", label = "Fase_1")
 plt.plot(time,[i/base for i in  list_of_voltage_in_fases[1]],color = "red", label = "Fase_2")
 plt.plot(time,[i/base for i in  list_of_voltage_in_fases[2]],color = "blue", label = "Fase_3")
-plt.legend()
 plt.show()
 
 

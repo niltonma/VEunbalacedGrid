@@ -211,7 +211,7 @@ def get_voltage_fases(file_w_path):
     fase3_pkw = fase3[104:200]
     fase3_pkw = [float(x) for x in fase3_pkw]
    
-    return fase1_pkw, fase2_pkw, fase3_pkw
+    return fase1_pkw, fase3_pkw, fase3_pkw
 
 # f = open('C:\\Users\\alves\\AppData\\Local\\OpenDSS\\IEEE13Nodeckt_MONITOR-POWERS1-ch1-ch3-ch5.DSV', mode="r")  
 
