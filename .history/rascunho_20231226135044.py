@@ -35,9 +35,6 @@ dss.solution.solve()
 
 
 dss.meters_write_name("feeder")
-lista_parametros_medidos = dss.meters.register_names
-dss.meters._name_write("feeder")
-lista_valores_medidos = dss.meters.register_values
 # dss.text("plot profile phases=1")
 # dss.text("plot profile phases=2")
 # dss.text("plot profile phases=3")

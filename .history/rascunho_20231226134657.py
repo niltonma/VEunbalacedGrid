@@ -9,8 +9,8 @@ path_to_save_df = r'C:\Users\alves\Documents\OpenDSS\replicar_artigos'
 
 random.seed(114)
 dss_file = r"C:\Program Files\OpenDSS\IEEETestCases\123Bus\IEEE123Master.dss"
-# dss = py_dss_interface.DSSDLL(r"C:\Program Files\OpenDSS") # usa versao da maquina
-dss = py_dss_interface.DSS() # usa versao fornecida por py_dss_interface 
+#dss = py_dss_interface.DSSDLL(r"C:\Program Files\OpenDSS") # usa versao da maquina
+dss = py_dss_interface.DSSDLL() # usa versao fornecida por py_dss_interface 
 
 dss.text(f"Compile [{dss_file}]")
 dss.text("Buscoords  BusCoords.dat")
@@ -31,13 +31,10 @@ dss.text("set stepsize=1h")
 
 # dss.text(f"batchedit load..* mode=1")
 # dss.text("set loadmult=0.2")
-dss.solution.solve()
+dss.solution_solve()
 
 
 dss.meters_write_name("feeder")
-lista_parametros_medidos = dss.meters.register_names
-dss.meters._name_write("feeder")
-lista_valores_medidos = dss.meters.register_values
 # dss.text("plot profile phases=1")
 # dss.text("plot profile phases=2")
 # dss.text("plot profile phases=3")
