@@ -14,7 +14,7 @@ dss = py_dss_interface.DSS() # usa versao fornecida por py_dss_interface
 
 
 dss_file = r"C:\Program Files\OpenDSS\IEEETestCases\13Bus\IEEE13Nodeckt.dss"
-dss.text("Clear")
+
 dss.text(f"Compile [{dss_file}]")
 
 dss.text("set mode=daily")
@@ -44,13 +44,12 @@ print(ls_24pts_v1)
 # para testar energymeter no inicio da linha
 # for index, elem in enumerate(ls_24pts_v1):
 #     ls_24pts_v1[index] = elem * 500
-hr =  range(0, len(ls_24pts_v1))
-plt.plot(hr, ls_24pts_v1)
-plt.show()
-print('oi')
-#ls_f2_v2 = [0.05302457142857146, 0.05302857142857143, 0.12039028571428567, 0.12042857142857144, 0.12040857142857146, 0.15697142857142854, 0.17413714285714285, 0.17413714285714285, 0.17413714285714285, 0.17985142857142855, 0.19183199999999995, 0.19298285714285712, 0.19308400000000003, 0.211028, 0.21104, 0.21104, 0.21104, 0.20989714285714284, 0.2119657142857143, 0.21196800000000002, 0.21196800000000002, 0.19038628571428567, 0.19037714285714283, 0.19037714285714283, 0.17323428571428567, 0.17323428571428567, 0.1347297142857143, 0.13454171428571426, 0.13474457142857138, 0.08753542857142861, 0.08728971428571429, 0.08729142857142855, 0.1101485714285714, 0.1101485714285714, 0.05134285714285714, 0.05189142857142859, 0.05189142857142859, 0.01709142857142857, 0.017588571428571446, 0.05758857142857145, 0.05758857142857145, 0.05758857142857145, 0.04837142857142859, 0.04837142857142859, 0.04837142857142859, 0.013080000000000008, 0.013074285714285696, 0.013074285714285696, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.03423542857142853, 0.03423371428571426, 0.03423371428571426, 0.058727428571428555, 0.05874285714285715, 0.05874285714285715]
 
-# ls_24pts_v23 = functions.ls_96_to_24(ls_f2_v2)
+# plt.plot(ls_24pts_v1)
+# plt.show()
+ls_f2_v2 = [0.05302457142857146, 0.05302857142857143, 0.12039028571428567, 0.12042857142857144, 0.12040857142857146, 0.15697142857142854, 0.17413714285714285, 0.17413714285714285, 0.17413714285714285, 0.17985142857142855, 0.19183199999999995, 0.19298285714285712, 0.19308400000000003, 0.211028, 0.21104, 0.21104, 0.21104, 0.20989714285714284, 0.2119657142857143, 0.21196800000000002, 0.21196800000000002, 0.19038628571428567, 0.19037714285714283, 0.19037714285714283, 0.17323428571428567, 0.17323428571428567, 0.1347297142857143, 0.13454171428571426, 0.13474457142857138, 0.08753542857142861, 0.08728971428571429, 0.08729142857142855, 0.1101485714285714, 0.1101485714285714, 0.05134285714285714, 0.05189142857142859, 0.05189142857142859, 0.01709142857142857, 0.017588571428571446, 0.05758857142857145, 0.05758857142857145, 0.05758857142857145, 0.04837142857142859, 0.04837142857142859, 0.04837142857142859, 0.013080000000000008, 0.013074285714285696, 0.013074285714285696, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.03423542857142853, 0.03423371428571426, 0.03423371428571426, 0.058727428571428555, 0.05874285714285715, 0.05874285714285715]
+
+ls_24pts_v23 = functions.ls_96_to_24(ls_f2_v2)
 
 # plt.plot(ls_24pts_v23)
 # plt.show()
@@ -89,28 +88,18 @@ percent = 0.95
 selected_buses =random.sample(mv_buses, int(percent * len(mv_buses)))
 selected_buses = sorted(set(selected_buses))
 # selected_buses = ['632', '633', '634', '650', '670', '671', '675', '680', '692', 'sourcebus']
-carga =ls_24pts_v1
+carga =ls_24pts_v23
 
 for index, elem in enumerate(carga):
-    carga[index] = elem * 620 #50
-color = 'tab:red'
-plt.xlabel('Horas')
-plt.ylabel('V [pu]', color=color)
-plt.plot(hr,carga)
-plt.show()
-
+    carga[index] = elem * 50
+# plt.plot(carga)
+# plt.show()
 
 for bus in selected_buses:
     print(f"New LoadShape.Semana npts={24}  interval={1}  mult={carga}\n")
     dss.text(f"New LoadShape.Semana npts={24}  interval={1}  mult={carga}")
     print(f"New Load.{bus}abc Bus1={bus}  Phases=3 daily=Semana\n")
     dss.text(f"New Load.{bus}abc Bus1={bus}  Phases=3 daily=Semana")
-
-""" alterar o trecho acima, pois foi retirado do script de Paulo e não foi definido potencias difentes entre as 3 fases.
-dss.text("New Load.634a1 Bus1=634.1     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-252   kvar=0 daily=comb_v2_pm")
-dss.text("New Load.634b1 Bus1=634.2     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168   kvar=0 daily=comb_v2_pm")
-dss.text("New Load.634c1 Bus1=634.3     Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168   kvar=0 daily=comb_v2_pm")
-"""
 
 
 dss.text("Interpolate")
@@ -126,21 +115,21 @@ register_values = dss.meters.register_values
 # List with elements starting from Line.684652 back to the Vsource.source
 element_list = list()
 
-dss.topology._branch_name_write("Line.684652")
-element_list.append(dss.topology._branch_name_read())
+dss.topology_write_branch_name("Line.684652")
+element_list.append(dss.topology_read_branch_name())
 
-while dss.topology._backward_branch():
-    active_element = dss.topology._branch_name_read()
+while dss.topology_backward_branch():
+    active_element = dss.topology_read_branch_name()
     element_list.append(active_element)
 
     # Need power flow results
-    cktelement_name = dss.cktelement._name()  # I tested and it name is the active_element
-    v = dss.cktelement._powers()
+    cktelement_name = dss.cktelement_name()  # I tested and it name is the active_element
+    v = dss.cktelement_powers()
 
     # Need read/write data (line example)
     if active_element.split(".")[0].lower() == "line":
-        line_name = dss.lines._name_read()  # I tested and it name is the active_element
-        rmatrix = dss.lines._rmatrix_read()
+        line_name = dss.lines_read_name()  # I tested and it name is the active_element
+        rmatrix = dss.lines_read_rmatrix()
     else:
         line_name = None
 
