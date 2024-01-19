@@ -45,8 +45,8 @@ print(ls_24pts_v1)
 # for index, elem in enumerate(ls_24pts_v1):
 #     ls_24pts_v1[index] = elem * 500
 hr =  range(0, len(ls_24pts_v1))
-# plt.plot(hr, ls_24pts_v1)
-# plt.show()
+plt.plot(hr, ls_24pts_v1)
+plt.show()
 print('oi')
 #ls_f2_v2 = [0.05302457142857146, 0.05302857142857143, 0.12039028571428567, 0.12042857142857144, 0.12040857142857146, 0.15697142857142854, 0.17413714285714285, 0.17413714285714285, 0.17413714285714285, 0.17985142857142855, 0.19183199999999995, 0.19298285714285712, 0.19308400000000003, 0.211028, 0.21104, 0.21104, 0.21104, 0.20989714285714284, 0.2119657142857143, 0.21196800000000002, 0.21196800000000002, 0.19038628571428567, 0.19037714285714283, 0.19037714285714283, 0.17323428571428567, 0.17323428571428567, 0.1347297142857143, 0.13454171428571426, 0.13474457142857138, 0.08753542857142861, 0.08728971428571429, 0.08729142857142855, 0.1101485714285714, 0.1101485714285714, 0.05134285714285714, 0.05189142857142859, 0.05189142857142859, 0.01709142857142857, 0.017588571428571446, 0.05758857142857145, 0.05758857142857145, 0.05758857142857145, 0.04837142857142859, 0.04837142857142859, 0.04837142857142859, 0.013080000000000008, 0.013074285714285696, 0.013074285714285696, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.03423542857142853, 0.03423371428571426, 0.03423371428571426, 0.058727428571428555, 0.05874285714285715, 0.05874285714285715]
 
@@ -92,32 +92,19 @@ selected_buses = sorted(set(selected_buses))
 carga =ls_24pts_v1
 
 for index, elem in enumerate(carga):
-    carga[index] = elem * 1 #50
-# color = 'tab:red'
-# plt.xlabel('Horas')
-# plt.ylabel('V [pu]', color=color)
-# plt.plot(hr,carga)
-# plt.show()
+    carga[index] = elem * 50 #50
+color = 'tab:red'
+plt.xlabel('Horas')
+plt.ylabel('V [pu]', color=color)
+plt.plot(hr,carga)
+plt.show()
 
-dss.text("New monitor.Tensao1 action=Save element=line.650632  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao2 action=Save element=line.632670  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao3 action=Save element=line.670671  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao4 action=Save element=line.671680  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao5 action=Save element=line.632633  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao6 action=Save element=line.632645  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao7 action=Save element=line.645646  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao8 action=Save element=line.692675  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao9 action=Save element=line.671684  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao10 action=Save element=line.684611  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao11 action=Save element=line.684652  terminal=1 ppolar=no mode=0") 
 
 for bus in selected_buses:
     print(f"New LoadShape.Semana npts={24}  interval={1}  mult={carga}\n")
     dss.text(f"New LoadShape.Semana npts={24}  interval={1}  mult={carga}")
     print(f"New Load.{bus}abc Bus1={bus}  Phases=3 daily=Semana\n")
     # dss.text(f"New Load.{bus}abc Bus1={bus}  Phases=3 daily=Semana")
-    #dss.text("New monitor.Tensao{bus}abc action=Save element=line.XFM1  terminal=1 ppolar=no mode=0") #mede tensao
-    #dss.text("plot monitor object=Tensao") # para salvar as tensões
     dss.text(f"New Load.{bus}abc1 Bus1={bus}   Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-252   kvar=0 daily=Semana")
     dss.text(f"New Load.{bus}abc2 Bus1={bus}   Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168 daily=Semana")
     dss.text(f"New Load.{bus}abc3 Bus1={bus}   Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168 daily=Semana")
@@ -132,12 +119,6 @@ dss.text("Interpolate")
 dss.solution.solve()
 dss.text("plot profile phases=all")
 print("here2")
-dss.text("Export Profile Phases=All")
-
-buses_distances = dss.circuit.buses_distances
-buses_vmag_pu = dss.circuit.buses_vmag_pu
-nodes = dss.circuit.nodes_names
-nodes_distancesByPhase = dss.circuit.nodes_distances_by_phase()
 
 register_names = dss.meters.register_names 
 register_values = dss.meters.register_values

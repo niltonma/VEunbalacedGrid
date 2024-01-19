@@ -92,32 +92,19 @@ selected_buses = sorted(set(selected_buses))
 carga =ls_24pts_v1
 
 for index, elem in enumerate(carga):
-    carga[index] = elem * 1 #50
+    carga[index] = elem * 5 #50
 # color = 'tab:red'
 # plt.xlabel('Horas')
 # plt.ylabel('V [pu]', color=color)
 # plt.plot(hr,carga)
 # plt.show()
 
-dss.text("New monitor.Tensao1 action=Save element=line.650632  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao2 action=Save element=line.632670  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao3 action=Save element=line.670671  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao4 action=Save element=line.671680  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao5 action=Save element=line.632633  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao6 action=Save element=line.632645  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao7 action=Save element=line.645646  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao8 action=Save element=line.692675  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao9 action=Save element=line.671684  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao10 action=Save element=line.684611  terminal=1 ppolar=no mode=0")
-dss.text("New monitor.Tensao11 action=Save element=line.684652  terminal=1 ppolar=no mode=0") 
 
 for bus in selected_buses:
     print(f"New LoadShape.Semana npts={24}  interval={1}  mult={carga}\n")
     dss.text(f"New LoadShape.Semana npts={24}  interval={1}  mult={carga}")
     print(f"New Load.{bus}abc Bus1={bus}  Phases=3 daily=Semana\n")
     # dss.text(f"New Load.{bus}abc Bus1={bus}  Phases=3 daily=Semana")
-    #dss.text("New monitor.Tensao{bus}abc action=Save element=line.XFM1  terminal=1 ppolar=no mode=0") #mede tensao
-    #dss.text("plot monitor object=Tensao") # para salvar as tensões
     dss.text(f"New Load.{bus}abc1 Bus1={bus}   Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-252   kvar=0 daily=Semana")
     dss.text(f"New Load.{bus}abc2 Bus1={bus}   Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168 daily=Semana")
     dss.text(f"New Load.{bus}abc3 Bus1={bus}   Phases=1 Conn=Wye  Model=1 kV=0.277  kW=-168 daily=Semana")

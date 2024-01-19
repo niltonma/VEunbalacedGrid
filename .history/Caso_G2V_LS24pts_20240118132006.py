@@ -92,7 +92,7 @@ selected_buses = sorted(set(selected_buses))
 carga =ls_24pts_v1
 
 for index, elem in enumerate(carga):
-    carga[index] = elem * 1 #50
+    carga[index] = elem * 5 #50
 # color = 'tab:red'
 # plt.xlabel('Horas')
 # plt.ylabel('V [pu]', color=color)
