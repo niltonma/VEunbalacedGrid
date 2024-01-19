@@ -251,27 +251,17 @@ elif mode == 1: ## Com carga
     plt.rcParams["figure.figsize"] = [7.50, 3.50]
     plt.rcParams["figure.autolayout"] = True
     fig, ax = plt.subplots()
-    tensao_fase1.loc[:,[i+".1" for i in selected_buses]].plot(ax=ax,  legend=True)
-    plt.title('Tensao Fase 1')
-    plt.xlabel('Horas')
-    plt.ylabel('V [pu]')
-    plt.show()
-    print("oi")
-
-    plt.rcParams["figure.figsize"] = [7.50, 3.50]
-    plt.rcParams["figure.autolayout"] = True
-    fig, ax = plt.subplots()
-    tensao_fase2.loc[:,[i+".2" for i in selected_buses]].plot(ax=ax,  legend=True)
+    tensao_fase2.loc[:,['675.2', '692.2']].plot(ax=ax,  legend=True)
     plt.title('Tensao Fase 2')
     plt.xlabel('Horas')
     plt.ylabel('V [pu]')
     plt.show()
     print("oi")
-
+    
     plt.rcParams["figure.figsize"] = [7.50, 3.50]
     plt.rcParams["figure.autolayout"] = True
     fig, ax = plt.subplots()
-    tensao_fase3.loc[:,[i+".3" for i in selected_buses]].plot(ax=ax,  legend=True)
+    tensao_fase3.loc[:,['675.3', '692.3']].plot(ax=ax,  legend=True)
     plt.title('Tensao Fase 3')
     plt.xlabel('Horas')
     plt.ylabel('V [pu]')
